@@ -15,7 +15,7 @@ export default function Register() {
     try {
       const { data } = await axios.post(
   'https://chat-app-backend-rose-omega-71.vercel.app/api/auth/register', 
-  formData, 
+  form, 
   { withCredentials: true }
 );
       dispatch(setCredentials(data));
