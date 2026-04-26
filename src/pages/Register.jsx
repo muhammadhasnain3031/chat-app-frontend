@@ -13,7 +13,10 @@ export default function Register() {
 
   const handleSubmit = async () => {
     try {
-      const { data } = await axios.post('https://chat-app-backend-rose-omega-71.vercel.app/api/auth/register', form);
+      const { data } = await axios.post('https://chat-app-backend-rose-omega-71.vercel.app/api/auth/register', 
+  formData, 
+  { withCredentials: true } 
+);
       dispatch(setCredentials(data));
       socket.connect();
       socket.emit('user_online', data.user.id);
