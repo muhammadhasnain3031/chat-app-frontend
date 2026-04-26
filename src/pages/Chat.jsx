@@ -29,7 +29,7 @@ export default function Chat() {
     if (!token) { navigate('/login'); return; }
 
     // Users fetch karo
-    axios.get('http://localhost:5000/api/chat/users', getHeaders())
+    axios.get('https://chat-app-backend-rose-omega-71.vercel.app/api/chat/users', getHeaders())
       .then(r => dispatch(setUsers(r.data)))
       .catch(err => {
         if (err.response?.status === 401) {
@@ -64,7 +64,7 @@ export default function Chat() {
   // ✅ Selected user badlne pe messages load karo
   useEffect(() => {
     if (!selectedUser || !token) return;
-    axios.get(`http://localhost:5000/api/chat/messages/${selectedUser._id}`, getHeaders())
+    axios.get(`https://chat-app-backend-rose-omega-71.vercel.app/api/chat/messages/${selectedUser._id}`, getHeaders())
       .then(r => dispatch(setMessages(r.data)))
       .catch(console.error);
   }, [selectedUser]); // eslint-disable-line
