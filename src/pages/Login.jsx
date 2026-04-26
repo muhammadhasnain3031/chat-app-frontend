@@ -13,7 +13,11 @@ export default function Login() {
 
   const handleSubmit = async () => {
     try {
-      const { data } = await axios.post('https://chat-app-backend-rose-omega-71.vercel.app/api/auth/login', form);
+const { data } = await axios.post(
+  'https://chat-app-backend-rose-omega-71.vercel.app/api/auth/login', 
+  formData, 
+  { withCredentials: true }
+);
       dispatch(setCredentials(data));
 
       // Login ke baad socket connect karo
